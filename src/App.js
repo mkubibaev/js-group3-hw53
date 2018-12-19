@@ -7,7 +7,8 @@ class App extends Component {
         currentTaskText: '',
         tasks: [
             {id: '2018-12-19T12:39:06.260Z', text: 'Buy milk', isDone: false},
-            {id: '2018-12-19T12:39:27.549Z', text: 'Do homework', isDone: false}
+            {id: '2018-12-19T12:39:27.549Z', text: 'Do homework', isDone: true},
+            {id: '2018-12-19T18:41:58.355Z', text: 'Kill Bill', isDone: false}
         ]
     };
 
@@ -32,11 +33,9 @@ class App extends Component {
                 currentTaskText: '',
                 tasks
             });
-
         } else {
             alert('Enter task!');
         }
-
     };
 
     removeTask = id => {
@@ -55,14 +54,12 @@ class App extends Component {
         task.isDone = !task.isDone;
         tasks[taskIndex] = task;
 
-        this.setState({
-            tasks
-        });
+        this.setState({tasks});
     };
 
     render() {
         return (
-            <div className="container py-4">
+            <div className="container">
                 <TaskForm
                     currentTaskText={this.state.currentTaskText}
                     onAddTask={() =>this.addTask()}

@@ -1,33 +1,27 @@
 import React from 'react';
 
 const Task = props => {
-    const taskClasses = ['card', 'mb-3'];
+    const taskClasses = ['task-card'];
 
     if (props.isDone) {
-        taskClasses.push('bg-light')
-    } else {
-        taskClasses.push('text-white bg-info')
+        taskClasses.push('done')
     }
 
     return (
         <div className={taskClasses.join(' ')}>
-            <div className="card-body d-flex justify-content-between align-items-center">
-                <div>
-                    <span className="text-muted">Status: {props.isDone ? 'Done' : 'in Process'}</span>
-                    <p className="mb-0">{props.text}</p>
-                </div>
-                <div>
-                    <label>
-                        <input type="checkbox"
-                               checked={props.isDone}
-                               onChange={props.onChangeStatus}
-                        />
-                         {props.isDone ? 'Open' : 'Close'}
-                    </label>
-                    <button onClick={props.onRemoveTask}
-                            className="btn btn-sm btn-outline-danger"
-                    >Delete</button>
-                </div>
+            <p className="task-text">{props.text}</p>
+            <div className="task-actions">
+                <span className="task-status">status: {props.isDone ? 'Done' : 'in Process'}</span>
+                <label className="task-checkbox">
+                    <input type="checkbox"
+                           checked={props.isDone}
+                           onChange={props.onChangeStatus}
+                    />
+                    Closed
+                </label>
+                <button onClick={props.onRemoveTask}
+                        className="btn task-btn"
+                >Delete</button>
             </div>
         </div>
     );
