@@ -1,7 +1,7 @@
 import React from 'react';
 
 const TaskForm = props => (
-    <div className="row">
+    <div className="row mb-4">
         <div className="col-10">
             <input type="text" className="form-control" placeholder="Add new task"/>
         </div>
